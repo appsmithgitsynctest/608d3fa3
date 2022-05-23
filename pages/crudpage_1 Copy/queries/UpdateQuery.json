@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "DeleteQuery",
+    "name": "UpdateQuery",
     "datasource": {
       "name": "fd4fbd1f",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Page1",
+    "pageId": "crudpage_1 Copy",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "DELETE FROM public.\"configs\"\n  WHERE \"id\" = {{Table1.triggeredRow.id}};",
+      "body": "UPDATE public.\"configs\" SET\n\t\t\"configName\" = '{{update_col_2.text}}',\n    \"configJson\" = '{{update_col_3.text}}',\n    \"configVersion\" = '{{update_col_4.text}}',\n    \"updatedAt\" = '{{update_col_5.text}}'\n  WHERE \"id\" = {{Table1.selectedRow.id}};",
       "pluginSpecifiedTemplates": [
         {
           "value": true
@@ -30,14 +30,18 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "Table1.triggeredRow.id"
+      "Table1.selectedRow.id",
+      "update_col_2.text",
+      "update_col_3.text",
+      "update_col_4.text",
+      "update_col_5.text"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "Page1_DeleteQuery",
+  "id": "crudpage_1 Copy_UpdateQuery",
   "deleted": false,
-  "gitSyncId": "628b838aa9c447309d048286_628b8397a9c447309d04828e"
+  "gitSyncId": "628b838aa9c447309d048286_628b83b8a9c447309d04829b"
 }
